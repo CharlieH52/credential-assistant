@@ -3,9 +3,6 @@ import os
 from time import sleep
 from pyautogui import keyDown, keyUp, hotkey, typewrite
 
-# LINEA DE COMPILACIÓN
-# COPY: pyinstaller --clean --onefile --windowed --distpath="C:\Users\CGOMEZ\Documents\CHARLIE-C\Practicas-Programacion\Outputs\SRV3-ACCESS" --name="SRV3-ACCESS" main.py
-
 class CredentialReadder():
     def __init__(self):
         self.file_directory = os.path.join(os.getcwd(), 'ID_Card.txt')
