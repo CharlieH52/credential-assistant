@@ -1,10 +1,7 @@
-import os
+import os 
 
 from time import sleep
 from pyautogui import keyDown, keyUp, hotkey, typewrite
-
-# LINEA DE COMPILACIÓN
-# COPY: pyinstaller --clean --onefile --windowed --distpath="C:\Users\CGOMEZ\Documents\CHARLIE-C\Practicas-Programacion\Outputs\SRV3-ACCESS" --name="SRV3-ACCESS" main.py
 
 class CredentialReadder():
     def __init__(self):
@@ -85,5 +82,11 @@ if __name__ == '__main__':
     acces_data = CredentialReadder()
     k_control = KeyFunctions()
 
-    k_control.input_credentials()
-    
+    while True:
+        print('Asegurate de que las MAYUSCULAS esten DESACTIVADAS.')
+        option = input('Continuar con la operacion? (Y/N)')
+        if option == 'N' or option == 'n':
+            break
+
+        if option == 'Y' or option == 'y':
+            k_control.input_credentials()
