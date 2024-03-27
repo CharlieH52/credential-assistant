@@ -9,6 +9,7 @@ class CredentialReadder():
         self.user = str(self.id_base['USER']).strip()
         self.cred = str(self.id_base['PASSWORD']).strip()
     
+
     def file_manager(self):
         credentials = {}
         if os.path.exists(self.file_directory) and os.path.isfile(self.file_directory):
@@ -16,9 +17,9 @@ class CredentialReadder():
                 with open(self.file_directory, 'r') as file:
                     for lines in file:
                         try:
-                            key, value = lines.strip().split('=')
+                            key, value = lines.strip().split(':')
                         except KeyError as e:
-                            print('Se ha detectado un error en el archivo ID_Card.txt\n'
+                            print('Se ha detectado un error en el archivo "credential.config"\n'
                                   f'{e}'
                             )
                         credentials[key] = value
@@ -38,6 +39,7 @@ class CredentialReadder():
 
             self.write_file(self.file_directory, base_file)
     
+    # Lista las credenciales almacenadas y la compara con la ingresada en el archivo .config, para determinar si las credenciales ya existen en el equipo.
     def credential_checker(self):
         command = ['cmdkey', '/list']
         server_cred = ''
@@ -62,10 +64,12 @@ class CredentialReadder():
         with open(directory, 'w') as file:
             file.write(input)
 
+    # Establece las credenciales a partir de los atributos de clase.
     def renew_creds(self):
         inp_com = ['cmdkey', f'/add:{self.serv}', f'/user:{self.user}', f'/pass:{self.cred}']
         self.command_execution(inp_com)
-        
+    
+    # Ejecuta una linea de comandos para eliminar las credenciales.
     def release_creds(self):
         inp_com = ['cmdkey', f'/delete:{self.serv}']
         self.command_execution(inp_com)

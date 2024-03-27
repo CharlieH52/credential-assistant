@@ -50,7 +50,7 @@ class FileManager:
         try:
             with open(file_path, 'r') as file:
                 for items in file.readlines():
-                    key, name = items.strip().split('= ')
+                    key, name = items.strip().split(': ')
                     self.dictionary[key] = name
                 return self.dictionary
             

@@ -38,11 +38,14 @@ if __name__ == '__main__':
               '4. Salir.\n'
         )
         option = input()
+        # Llama a la funcion que establece las credenciales.
         if option == '1':
             acc.renew_creds()
             sleep(1)
             print('Se han generado las credenciales...\n')
             acc.open_server_folder()
+
+        # Si las credenciales no han sido establecidas omite la decisión, sino, llama la funcion que elimina las credenciales.
         if option == '2':
             if cred_checker == False:
                 sleep(1)
@@ -51,6 +54,8 @@ if __name__ == '__main__':
                 acc.release_creds()
                 sleep(1)
                 print('Se han eliminado las credenciales...\n')
+
+        # Devuelve un mensaje del estado actual de las credenciales al servidor.  
         if option == '3':
             if cred_checker == True:
                 sleep(1)
@@ -58,5 +63,7 @@ if __name__ == '__main__':
             else:
                 sleep(1)
                 print('Aun no se han asignado credenciales a este equipo.\n')
+
+        # Sale del programa.
         if option == '4':
             break
