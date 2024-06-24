@@ -66,7 +66,11 @@ class CredentialReadder():
 
     # Establece las credenciales a partir de los atributos de clase.
     def renew_creds(self):
-        inp_com = ['cmdkey', f'/add:{self.serv}', f'/user:{self.user}', f'/pass:{self.cred}']
+        inp_com = ['cmdkey',
+                   f'/add:{self.serv}',
+                   f'/user:{self.user}',
+                   f'/pass:{self.cred}'
+                   ]
         self.command_execution(inp_com)
     
     # Ejecuta una linea de comandos para eliminar las credenciales.
@@ -79,3 +83,12 @@ class CredentialReadder():
         server_path = f'{string}{self.serv}'
         command = f'START {server_path}'
         self.command_execution(command)
+
+    def empress_instalation(self):
+        
+        try:
+            subprocess.run(f'START {str(f'\\\\{self.serv}\\sis_cuauh\\PRINCIPAL\\Instalador.Sistemas.EMPRESS_SRV-CUAUHTEMOC3-v4.0.exe')}',
+                        shell=True
+                        )
+        except Exception:
+            print('Ocurrio un problema al ejecutar el proceso de instalacion.')
