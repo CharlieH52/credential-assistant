@@ -84,6 +84,7 @@ class CredentialReader(FileManager):
         super().__init__()
         self.map_obj = f"\\\\{self.srv_creds['SERVER']}\\sis_cuauh\\PRINCIPAL\\MapObjects-v2.4.EXE"
         self.emp_sof = f"\\\\{self.srv_creds['SERVER']}\\sis_cuauh\\PRINCIPAL\\Instalador.Sistemas.EMPRESS_SRV-CUAUHTEMOC3-v4.0.exe"
+        self.web_view = f"\\\\{self.srv_creds['SERVER']}\\sis_cuauh\\PRINCIPAL\\MicrosoftEdgeWebView2-x86.exe"
 
     def config_creds(self):
         print(self.read_config())
