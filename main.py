@@ -1,13 +1,14 @@
 from time import sleep
-from BaseFunctions import CredentialReadder
-acc = CredentialReadder()
+from BaseFunctions import CredentialReader, OperativeSystem
+cr = CredentialReader()
+op = OperativeSystem()
 
 if __name__ == '__main__':
     while True:
-        cred_checker = acc.credential_checker()
-        print('Estado actual del acceso al servidor...\n')
+        cred_checker = cr.credential_checker()
+        print("Estado actual del acceso al servidor...\n")
         if cred_checker == True:
-            print(f'Credenciales: {acc.serv}\n')
+            print(f"Credenciales: {cr.srv_creds['SERVER']}\n")
         else:
             print('Credenciales: SIN ASIGNAR\n')    
 
@@ -26,23 +27,23 @@ if __name__ == '__main__':
                 while True:
                     if cred_checker == True:
                         print('Ya se encuentran asignadas las credenciales en este equipo.\n')
-                        print('Deseas renovarlas?\n')
+                        print('Deseas renovarlas?(Y/N)\n')
 
-                        cred_rep = input()
+                        cred_rep = input().upper()
 
-                        if cred_rep == 'Y' or cred_rep == 'y':
-                            acc.release_creds()
+                        if cred_rep == 'Y':
+                            op.release_creds()
                             sleep(1)
                             print('Credenciales removidas...\n')
-                            acc.renew_creds()
+                            op.renew_creds()
                             sleep(1)
                             print('Credenciales renovadas...\n')
                             sleep(2)
                             break
-                        elif cred_rep == 'N' or cred_rep == 'n':
+                        elif cred_rep == 'N':
                             break
                     if cred_checker == False:
-                        acc.renew_creds()
+                        op.renew_creds()
                         sleep(2)
                         print('Se han generado las credenciales...\n')
                         break
@@ -53,7 +54,7 @@ if __name__ == '__main__':
                 sleep(1)
                 print('Aun no se han asignado credenciales a este equipo.\n')
             else:
-                acc.release_creds()
+                op.release_creds()
                 sleep(1)
                 print('Se han eliminado las credenciales...\n')
 
@@ -62,7 +63,7 @@ if __name__ == '__main__':
             if cred_checker == True:
                 print('Comenzando instalacion...')
                 sleep(1)
-                acc.empress_instalation()
+                cr.empress_instalation()
             else:
                 sleep(1)
                 print('No hay credenciales para la instalacion.')
