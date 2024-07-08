@@ -16,8 +16,11 @@ if __name__ == '__main__':
               '1. Asignar credenciales.\n'
               '2. Borrar credenciales.\n'
               '3. Instalar EMPRESS.\n'
-              '4. Estatus.\n'
-              '5. Salir.\n'
+              '4. Instalar MapObjects.\n'
+              '5. Instalar WebView.\n'
+              '6. Ir a carpeta.\n'
+              '7. Estatus.\n'
+              '8. Salir.\n'
         )
 
         option = input()
@@ -69,7 +72,7 @@ if __name__ == '__main__':
                 print('No hay credenciales para la instalacion.')
 
         # Devuelve un mensaje del estado actual de las credenciales al servidor.  
-        if option == '4':
+        if option == '7':
             if cred_checker == True:
                 sleep(1)
                 print('Credenciales asignadas.\n')
@@ -78,5 +81,5 @@ if __name__ == '__main__':
                 print('Aun no se han asignado credenciales a este equipo.\n')
 
         # Sale del programa.
-        if option == '5':
+        if option == '8':
             break
