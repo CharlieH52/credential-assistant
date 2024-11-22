@@ -1,31 +1,34 @@
-from prompt import CLI
-from credential_manager import CredentialManager
+from cred_access.src.mainMenu import *
+from cred_access.src.options.addOption import add_credentials
+from cred_access.src.options.deleteOption import delete_credentials
+from cred_access.src.options.serverPathOption import server_path
+
+from cred_access.src.mainFunctions import CredentialManager
 
 cr = CredentialManager()
-cli = CLI()
 
 if __name__ == '__main__':
     while True:
-        cli.cred_status()
+        cred_status()
 
-        cli.main()
+        main()
 
-        option = input()\
+        option = input()
         
         if option == '1':
-            cli.add_credentials()
+            add_credentials()
 
         elif option == '2':
-            cli.delete_credentials()
+            delete_credentials()
         
         elif option == '3':
-            cli.server_path()
+            server_path()
 
         elif option == '4':
-            print('No se ha implementado ninguin modulo.')
+            pass
 
         elif option == '5':
-            cli.instalation_checker()
+            pass
 
         elif option == '6':
             break

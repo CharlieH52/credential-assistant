@@ -28,8 +28,7 @@ class CredentialManager:
         self.command_execution(inp_com)
 
     def open_server_folder(self):
-        string = r'\\'
-        server_path = f"{string}{self.server_credentials['SERVER']}"
+        server_path = f"{self.server_credentials['SERVER']}"
         command = f"START {server_path}"
         self.command_execution(command)
     
