@@ -1,6 +1,6 @@
 import subprocess
-from cred_access.src.mainFunctions import CredentialManager
-from cred_access.src.consts.constants import *
+from src.consts.constants import *
+from src.mainFunctions import CredentialManager
 
 cr = CredentialManager()
 
@@ -30,18 +30,18 @@ class SoftwareAsistant:
         subprocess.run(program)
 
     def instalation_checker(self):
-            CLEAR
-            print('Modulo no implementado.')
-            input()
-            pass
+        CLEAR
+        print('Modulo no implementado.')
+        input()
+        pass
     
 sa = SoftwareAsistant()
     
-def software_list(self):
-        CLEAR
-        while True:
-            print('Selecciona el programa a instalar')
-            for i in sa.installers:
-                print(i)
-            input()
-            break
+def software_list():
+    CLEAR
+    while True:
+        print('Selecciona el programa a instalar')
+        for i in sa.installers:
+            print(i)
+        input()
+        break

@@ -1,9 +1,9 @@
-from cred_access.src.mainMenu import *
-from cred_access.src.options.addOption import add_credentials
-from cred_access.src.options.deleteOption import delete_credentials
-from cred_access.src.options.serverPathOption import server_path
+from src.mainMenu import *
+from src.options.addOption import add_credentials
+from src.options.deleteOption import delete_credentials
+from src.options.serverPathOption import server_path
 
-from cred_access.src.mainFunctions import CredentialManager
+from src.mainFunctions import CredentialManager
 
 cr = CredentialManager()
 

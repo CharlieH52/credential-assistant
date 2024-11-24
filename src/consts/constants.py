@@ -1,16 +1,23 @@
 from os import system
 from time import sleep
-from cred_access.src.mainFunctions import CredentialManager
+from src.mainFunctions import CredentialManager
 
 cr = CredentialManager()
 
+# IMPORTANT PROGRAM VARIABLES
 STATUS = cr.credential_checker()
-
 CLEAR = system('cls')
-
 WAIT = sleep(2)
 
+# PROGRAMS TO LIST
 SOFTWARE = [ 'EMPRESS', 'MapObjects', 'WebView']
+
+# DOMAIN SERVER CREDENTIALS
+SERVER = r'SRV-CUAUHTEMOC3'
+USER = r'SRV-CUAUHTEMOC3\U_SISTEMAS'
+PASSWORD = r'USis.cuauh'
+TARGET_PATH = r'\\\\SRV-CUAUHTEMOC3\sis_cuauh\PRINCIPAL'
+
 
 # ACGE_ChatGPT.exe
 # DS_EnlaceSE.exe

@@ -1,5 +1,5 @@
-from cred_access.src.consts.constants import *
-from cred_access.src.mainFunctions import CredentialManager
+from src.consts.constants import *
+from src.mainFunctions import CredentialManager
 
 cr = CredentialManager()
 
@@ -7,7 +7,7 @@ def cred_status():
     CLEAR
     print("Estado actual del acceso al servidor...\n")
     if STATUS == True:
-        print(f"Credenciales: {cr.server_credentials['SERVER']} [ASIGNADAS]\n")
+        print(f"Credenciales: {SERVER} [ASIGNADAS]\n")
     else:
         print('Credenciales: SIN ASIGNAR\n') 
 
